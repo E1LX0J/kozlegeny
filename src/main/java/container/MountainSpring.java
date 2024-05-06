@@ -30,39 +30,11 @@ public class MountainSpring extends Container implements Serializable {
 		output = null;
 	}
 
-	
-	/**
-	 * Mindig false-al tér vissza, ugyanis a MountainSpring-re nem lépheetnek rá a játékosok.
-	 * @return boolean
-	 */
-	public boolean steppable(){
-		return false;
-	}
-
 	/**
 	 * A hegyi forrásban lévő víz mennyiségét csökkenti
 	 */
 	public void decreaseWaterAm() {
 		waterCapac--;
-	}
-
-
-	
-	/** 
-	 * @param pipe
-	 */
-	@Override
-	public void setInput(Pipe pipe) {
-
-	}
-
-	
-	/** 
-	 * @return boolean
-	 */
-	@Override
-	public boolean amIGettingDeatched() {
-		return false;
 	}
 
 	/**
@@ -71,125 +43,6 @@ public class MountainSpring extends Container implements Serializable {
 	public String writeInputState(){
 
 		return "MountainSpring inputStatjének első illetve második eleme: " + this + ": "+ inputState[0] + ',' + inputState[1];
-	}
-
-
-	/**
-	 * A Mountain Spring ezt a függvényt nem valósítja meg, úgyhogy erről többet nem is beszélek
-	 */
-	@Override
-	public void lifeCycle(int turnCount) {
-
-	}
-
-	@Override
-	public void getsOccupied() {
-
-	}
-
-	/**
-	 * A Mountain Spring ezt a függvényt nem valósítja meg, úgyhogy erről többet nem is beszélek
-	 */
-	@Override
-	public void movedFrom() {
-
-	}
-
-	/**
-	 * A Mountain Spring ezt a függvényt nem valósítja meg, úgyhogy erről többet nem is beszélek
-	 */
-	@Override
-	public void alterPump(int x, int y, Type t) {
-
-	}
-
-	/**
-	 * A Mountain Spring ezt a függvényt nem valósítja meg, úgyhogy erről többet nem is beszélek
-	 */
-	@Override
-	public void mendPipe() {
-
-	}
-
-	/**
-	 * A Mountain Spring ezt a függvényt nem valósítja meg, úgyhogy erről többet nem is beszélek
-	 */
-	@Override
-	public void mendPump() {
-
-	}
-
-	/**
-	 * A Mountain Spring ezt a függvényt nem valósítja meg, úgyhogy erről többet nem is beszélek
-	 */
-	@Override
-	public void puncturePipe() {
-
-	}
-
-	/**
-	 * A Mountain Spring ezt a függvényt nem valósítja meg, úgyhogy erről többet nem is beszélek
-	 */
-	@Override
-	public void insertPump(Player player) {
-
-	}
-
-	/**
-	 * A Mountain Spring ezt a függvényt nem valósítja meg, úgyhogy erről többet nem is beszélek
-	 */
-	@Override
-	public void extractPipe(Player player, int xCord, int yCord) {
-
-	}
-
-	/**
-	 * A Mountain Spring ezt a függvényt nem valósítja meg, úgyhogy erről többet nem is beszélek
-	 */
-	@Override
-	public void insertPipe(Player player, int xCord, int yCord) {
-
-	}
-
-	/**
-	 * A Mountain Spring ezt a függvényt nem valósítja meg, úgyhogy erről többet nem is beszélek
-	 */
-	@Override
-	public void pipeGetsSlippery() {
-
-	}
-
-	
-	/** 
-	 * @return boolean
-	 */
-	@Override
-	public boolean getIsSlippery() {
-		return false;
-	}
-
-	@Override
-	public void pipeGetsSticky() {
-
-	}
-
-	@Override
-	public void takePipeFromCs(Player player) {
-
-	}
-
-	@Override
-	public void takePumpFromCs(Player player) {
-
-	}
-
-
-	/** 
-	 * @return boolean
-	 */
-	@Override
-	public boolean getIsSticky() {
-		return false;
 	}
 
 	/**
@@ -211,16 +64,6 @@ public class MountainSpring extends Container implements Serializable {
 		}
 	}
 
-	@Override
-	public int hasPipes() {
-		return -1;
-	}
-
-	@Override
-	public boolean hasPump() {
-		return false;
-	}
-
 	/**
 	 * A Mountain Spring ezt a függvényt nem valósítja meg, úgyhogy erről többet nem is beszélek
 	 */
@@ -236,26 +79,6 @@ public class MountainSpring extends Container implements Serializable {
 	@Override
 	public String consolePrint() {
 		return "MS\t";
-	}
-
-	@Override
-	public void damageContainer() {
-
-	}
-
-	@Override
-	public boolean isLooseEnd() {
-		return false;
-	}
-
-	@Override
-	public boolean isDamaged() {
-		return false;
-	}
-
-	@Override
-	public Container getInput() {
-		return null;
 	}
 
 	@Override
@@ -286,16 +109,6 @@ public class MountainSpring extends Container implements Serializable {
 	 */
 	public void setOutput(Pipe output){
 		this.output = output;
-	}
-
-	@Override
-	public void setBreakOff(int rng) {
-		
-	}
-
-	@Override
-	public int queryCistern() {
-		return -1;
 	}
 
 	@Override

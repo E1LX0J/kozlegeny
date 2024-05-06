@@ -38,9 +38,13 @@ public abstract class Container implements Serializable {
 		return this.neighbors.contains(neighbor);
 	}
 
-	public abstract void setInput(Pipe pipe);
+	public void setInput(Pipe pipe){
 
-	public abstract boolean amIGettingDeatched();
+	}
+
+	public boolean amIGettingDeatched(){
+		return false;
+	}
 
 	
 	/**
@@ -58,7 +62,9 @@ public abstract class Container implements Serializable {
 	 * A függvény azért felelős, hogy egy adott idő után megtörténjen valami a container objektumunkkal
 	 * @param turnCount
 	 */
-	public abstract void lifeCycle(int turnCount);
+	public void lifeCycle(int turnCount){
+
+	}
 
 	/**
 	 * Ezt a függvényt implementálja a Pump és Cistern osztályok
@@ -70,44 +76,56 @@ public abstract class Container implements Serializable {
 		return false;
 	}
 
-	public abstract void getsOccupied();
+	public void getsOccupied(){
+
+	}
 
 	/**
 	 *  Ezt a függvényt implementálja a Pipe osztály
 	 *	A függvény azt a feladatot látja el, hogy amikor a játékos ellép egy Container-ről (Pipe-ról), beállítsa, hogy a Pipe nem occupied
 	 */
-	public abstract void movedFrom();
+	public void movedFrom(){
+
+	}
 
 	/**
 	 * Ezt a függvényt a Pump osztály valósítja meg
 	 * Ez a függvény felelős a pumpa output illetve inputjának átállításáért
-	 * @param player
-	 * @param pi
+	 * @param x
+	 * @param y
 	 * @param t
 	 * @throws MyException
 	 */
-	public abstract void alterPump(int x, int y, Type t);
+	public void alterPump(int x, int y, Type t){
+
+	}
 
 	/**
 	 * Ezt a függvényt a Pipe osztály valósítja meg
 	 * Ez a függvény felelős a cső megjavításáért
 	 * @throws MyException
 	 */
-	public abstract void mendPipe();
+	public void mendPipe(){
+
+	}
 
 	/**
 	 * Ezt a függvényt a Pump osztály valósítja meg
 	 * Ez a függvény felelős a pumpa megjavításáért
 	 * @throws MyException
 	 */
-	public abstract void mendPump();
+	public void mendPump(){
+
+	}
 
 	/**
 	 * Ezt a függvényt a Pipe osztály valósítja meg
 	 * Ez a függvény felelős a cső meglékeléséért
 	 * @throws MyException
 	 */
-	public abstract void puncturePipe();
+	public void puncturePipe(){
+
+	}
 
 	/**
 	 * Ezt az függvényt a Pipe osztály valósítja meg
@@ -115,16 +133,21 @@ public abstract class Container implements Serializable {
 	 * @param player
 	 * @throws MyException
 	 */
-	public abstract void insertPump(Player player);
+	public void insertPump(Player player){
+
+	}
 
 	/**
 	 * Ezt a függvényt a Pump osztály valósítja meg
 	 * Ez a függvény felelős a csőhöz tartoző szabadvégű csőnek leillesztéséért
 	 * @param player
-	 * @param pi
+	 * @param xCord
+	 * @param yCord
 	 * @throws MyException
 	 */
-	public abstract void extractPipe(Player player, int xCord, int yCord);
+	public void extractPipe(Player player, int xCord, int yCord){
+
+	}
 
 	/**
 	 * Ezt a függvényt a Pump osztály valósítja meg
@@ -135,13 +158,16 @@ public abstract class Container implements Serializable {
 	 * @param yCord
 	 * @throws MyException
 	 */
-	public abstract void insertPipe(Player player, int xCord, int yCord);
+	public void insertPipe(Player player, int xCord, int yCord){
+
+	}
 
 	/**
 	 * Ezt a függvényt a Pipe osztály valósítja meg. Ez a függvény felelős a cső csúszóssá válik
 	 */
-	public abstract void pipeGetsSlippery();
+	public void pipeGetsSlippery(){
 
+	}
 	/**
 	 * Ezt a függvényt a Pipe (és Pump (false default))osztályok valósulnak meg. Ez a függvény felelős visszaadni csúszóssá-e Pipe (getter)
 	 * @return
@@ -151,22 +177,32 @@ public abstract class Container implements Serializable {
 	 * Ezt a függvényt a Pipe osztály valósítja meg.
 	 * Ez a függvény felelős visszaadni csúszóssá-e Pipe (getter)
 	 */
-	public abstract boolean getIsSlippery();
+	public boolean getIsSlippery(){
+		return false;
+	}
 
 	/*
 	 * Ezt a függvényt a Pipe osztály valósítja meg. 
 	 * Ez a függvény felelős a cső  ragadóssá válik
 	 */
-	public abstract void pipeGetsSticky();
+	public void pipeGetsSticky(){
 
-	public abstract void takePipeFromCs(Player player);
+	}
 
-	public abstract void takePumpFromCs(Player player);
+	public void takePipeFromCs(Player player){
+
+	}
+
+	public void takePumpFromCs(Player player){
+
+	}
 	/*
 	 * Ezt a függvényt a Pipe osztály valósítja meg.
 	 *  Ez a függvény felelős visszaadni ragadóssá-e Pipe (getter)
 	 */
-	public abstract boolean getIsSticky();
+	public boolean getIsSticky(){
+		return false;
+	}
 
 	/**
 	 * Ezt a függvényt megvalósítja a Pump, Pipe, Cistern illetve MountaiSpring osztályok
@@ -181,31 +217,40 @@ public abstract class Container implements Serializable {
 	 * Ezt a függvényt megvalósítja a Pipe, Cistern, MountainSpring
 	 * Ez a függvény felelős a víz mozgásáért való kiértékelésekért
 	 */
-	public abstract void eval();
+	public void eval(){
 
-	public abstract int hasPipes();
+	}
 
-	public abstract boolean hasPump();
+	public int hasPipes(){
+		return -1;
+	}
+
+	public boolean hasPump(){
+		return false;
+	}
 
 	/**
 	 * Ezt a függvényt megvalósítja a Pump, Pipe, Cistern illetve MountaiSpring osztályok
 	 * Ez a függvény felelős az inputState megváltoztatásáért, ez felelős a víz tényleges mozgásáért
 	 */
-	public abstract void setInputState();
+	public void setInputState(){
+
+	}
 
 	public abstract String consolePrint();
 
-	public abstract void damageContainer();
+	public void damageContainer(){
 
-	
+	}
 
-	public abstract boolean isLooseEnd();
+	public boolean isLooseEnd(){
+		return false;
+	}
 
 	/**
 	 * Az evaluation-t (kiértékelést) követően az inputState értékeit megváltoztatjuk
 	 */
 	public void makeHistory() {
-
 		inputState[0] = inputState[1];
 		inputState[1] = false;
 	}
@@ -230,9 +275,13 @@ public abstract class Container implements Serializable {
 		this.neighbors = neighbors;
 	}
 
-	public abstract boolean isDamaged();
+	public boolean isDamaged(){
+		return false;
+	}
 
-	public abstract Container getInput();
+	public Container getInput(){
+		return null;
+	}
 	public boolean isEmpty(){
 		if(!inputState[0] && !inputState[1]){
 			return true;
@@ -241,13 +290,21 @@ public abstract class Container implements Serializable {
 			return false;
 		}
 	}
-	public abstract Container getOutput();
+	public Container getOutput(){
+		return null;
+	}
 
-	public abstract void setBreakOff(int rng);
+	public void setBreakOff(int rng){
 
-	public abstract int queryCistern();
+	}
 
-	public abstract int mountainSpringQuery();
+	public int queryCistern(){
+		return -1;
+	}
+
+	public int mountainSpringQuery(){
+		return -1;
+	}
 
 	public abstract String myIconPath();
 }

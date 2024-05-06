@@ -69,22 +69,6 @@ public class Pump extends Container implements Serializable {
 	}
 
 	/**
-	 * A Pump nem valósítja meg ezt a függvényt, ezért többet nem is írok róla
-	 */
-	@Override
-	public void puncturePipe() {
-
-	}
-
-	/**
-	 * A Pump nem valósítja meg ezt a függvényt, ezért többet nem is írok róla
-	 */
-	@Override
-	public void insertPump(Player player) {
-
-	}
-
-	/**
 	 * Hozzácsatlakoztatja a paraméterük kapott Player áttal hordozott csövet a pumpához.
 	 * @param player - A játékos
 	 * @throws MyException
@@ -114,52 +98,12 @@ public class Pump extends Container implements Serializable {
 	}
 
 	/**
-	 * A Pump nem valósítja meg ezt a függvényt, ezért többet nem is írok róla
-	 */
-	@Override
-	public void pipeGetsSlippery() {
-
-	}
-
-
-	/**
-	 * @return boolean
-	 */
-	@Override
-	public boolean getIsSlippery() {
-		return false;
-	}
-
-	@Override
-	public void pipeGetsSticky() {
-	}
-
-	@Override
-	public void takePipeFromCs(Player player) {
-
-	}
-
-	@Override
-	public void takePumpFromCs(Player player) {
-
-	}
-
-
-	/**
-	 * @return boolean
-	 */
-	@Override
-	public boolean getIsSticky() {
-		return false;
-	}
-
-	/**
 	 * Ez a függvény felelős a pumpa outputjának illetve inputjának átváltásáért
 	 * A paraméterül kapott csőről megállapítjuk, hogy szomszédos-e ezzel a pumpával amennyiben igen mélyebbre megyünk
 	 * Megnézzük, hogy melyiket akarjuk változtatni: a pumpa kimenetét (output) vagy bemenetét (input), ezt a t paraméterrel adjuk meg
 	 * Mind a két esetben megnézzük, hogy az egyik már nem másikhoz tartozik azaz, ha inputot akarunk változtatni nem az output-e amire változtatni akrjuk és fordítva
-	 * @param player
-	 * @param pi
+	 * @param x
+	 * @param y
 	 * @param t
 	 */
 	public void alterPump(int x, int y, Type t) {
@@ -191,18 +135,10 @@ public class Pump extends Container implements Serializable {
 	}
 
 	/**
-	 * A Pump nem valósítja meg ezt a függvényt, ezért többet nem is írok róla
-	 */
-	@Override
-	public void mendPipe() {
-
-	}
-
-
-	/**
 	 * Elveszi a kívánt csövet a pumpától és a player-hez adja hozzá.
 	 * @param player - A játékos
-	 * @param pi - Az elvételre kijelölt cső.
+	 * @param xCord - Az elvételre kijelölt cső.
+	 * @param yCord - Az elvételre kijelölt cső.
 	 * @throws MyException
 	 */
 	public void extractPipe(Player player, int xCord, int yCord){
@@ -325,36 +261,6 @@ public class Pump extends Container implements Serializable {
 		}
 	}
 
-	@Override
-	public void getsOccupied() {
-
-	}
-
-	/**
-	 * A Pump nem valósítja meg ezt a függvényt, ezért többet nem is írok róla
-	 */
-	@Override
-	public void movedFrom() {
-
-	}
-
-	/**
-	 * A Pump nem valósítja meg ezt a függvényt, ezért többet nem is írok róla
-	 */
-	public void eval() {
-
-	}
-
-	@Override
-	public int hasPipes() {
-		return -1;
-	}
-
-	@Override
-	public boolean hasPump() {
-		return false;
-	}
-
 	/**
 	 * A Pump osztályhoz tartozó setInputState
 	 * Ez a függvény egyszerűen csak annyit csinál, hogy az output Pipe-jára "továbbítja" a setInputState() függvény hívást
@@ -383,27 +289,13 @@ public class Pump extends Container implements Serializable {
 		this.isDamaged = true;
 	}
 
-
-	/**
-	 * @return boolean
-	 */
-	@Override
-	public boolean isLooseEnd() {
-		return false;
-	}
-
-
 	/**
 	 * Ha teli van a pumpa, vagyis már nem lehet több csövet hozzácstolni, akkor true-val tér vissza.
 	 * @return boolean
 	 */
 	public boolean isAllConnected() {
-		if(getMaxPipeAmount()==neighbors.size())
-			return true;
-		else
-			return false;
+		return getMaxPipeAmount()==neighbors.size();
 	}
-
 
 	/**
 	 * Vissaztér a randomDamageValue attribútum értékével.
@@ -477,15 +369,6 @@ public class Pump extends Container implements Serializable {
 		this.input = input;
 	}
 
-
-	/**
-	 * @return boolean
-	 */
-	@Override
-	public boolean amIGettingDeatched() {
-		return false;
-	}
-
 	/**
 	 * Beállítja az isDamaged attribútum értékét a parméterként kapottra.
 	 * @param b
@@ -506,16 +389,6 @@ public class Pump extends Container implements Serializable {
 	@Override
 	public void setBreakOff(int rng) {
 		randomDamageValue = rng;
-	}
-
-	@Override
-	public int queryCistern() {
-		return -1;
-	}
-
-	@Override
-	public int mountainSpringQuery() {
-		return -1;
 	}
 
 	@Override
