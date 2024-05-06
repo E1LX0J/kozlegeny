@@ -41,6 +41,8 @@ public class Pump extends Container implements Serializable {
 	 */
 	private int maxPipeAmount;
 
+	private Random random;
+
 
 	/**
 	 * Pump konstruktora
@@ -57,6 +59,7 @@ public class Pump extends Container implements Serializable {
 	}
 
 
+	@Override
 	/**
 	 * Ez a függvény valósítja meg a pumpa megjavítását
 	 * Megnézzük, hogy a pumpa el van-e romolva amennyiben igen elvégezzük a javítást más esetben kivételt dobunk
@@ -68,6 +71,7 @@ public class Pump extends Container implements Serializable {
 			MyAlert.showInvalidMoveAlert("Wasn't even a scratch on it");
 	}
 
+	@Override
 	/**
 	 * Hozzácsatlakoztatja a paraméterük kapott Player áttal hordozott csövet a pumpához.
 	 * @param player - A játékos
@@ -97,6 +101,7 @@ public class Pump extends Container implements Serializable {
 		}
 	}
 
+	@Override
 	/**
 	 * Ez a függvény felelős a pumpa outputjának illetve inputjának átváltásáért
 	 * A paraméterül kapott csőről megállapítjuk, hogy szomszédos-e ezzel a pumpával amennyiben igen mélyebbre megyünk
@@ -134,6 +139,7 @@ public class Pump extends Container implements Serializable {
 			MyAlert.showInvalidMoveAlert("Target Pipe doesn't neigbour your position");
 	}
 
+	@Override
 	/**
 	 * Elveszi a kívánt csövet a pumpától és a player-hez adja hozzá.
 	 * @param player - A játékos
@@ -151,15 +157,11 @@ public class Pump extends Container implements Serializable {
 		if(cp.getContainer().amIGettingDeatched()) {
 			if (this.seeifNeighbors(cp.getContainer())) {
 				if (cp.getContainer().isLooseEnd()) {
-					if(this.getInput() != null){
-						if (this.getInput().equals(cp.getContainer())) {
+					if(this.getInput() != null && this.getInput().equals(cp.getContainer())){
 							this.setInput(null);
-						}
 					}
-					if(this.getOutput() != null){
-						if(this.getOutput().equals((cp.getContainer()))){
-							this.setOutput(null);
-						}
+					if(this.getOutput() != null && this.getOutput().equals((cp.getContainer()))){
+						this.setOutput(null);
 					}
 					cp.getContainer().getNeighbors().remove(this);
 					this.getNeighbors().remove(cp.getContainer());
@@ -202,6 +204,7 @@ public class Pump extends Container implements Serializable {
 	}
 
 
+	@Override
 	/**
 	 * Mindig true-val tér vissza, ugyanis a Pump-ra akárhány játékos léphet.
 	 * @return boolean
@@ -211,16 +214,15 @@ public class Pump extends Container implements Serializable {
 	}
 
 
+	@Override
 	/**
 	 * Elrontja a pumpát a randomDamageValue és a paraméterül kapott érték alapján
 	 * @param turnCount - Ha egyenéő a randomDamageValue-val és működik a pumpa, akkor elrontja.
 	 */
 	public void lifeCycle(int turnCount){
 		if(turnCount == this.randomDamageValue && !this.isDamaged){
-			System.out.println("Naww this pump got damaged: " + this);
 			this.isDamaged = true;
-			Random rand = new Random();
-			this.randomDamageValue =  rand.nextInt(10) + Game.getInstance().getTurnCount();
+			this.randomDamageValue =  random.nextInt(10) + Game.getInstance().getTurnCount();
 		}
 	}
 
@@ -248,6 +250,7 @@ public class Pump extends Container implements Serializable {
 
 	}
 
+	@Override
 	/**
 	 * Azt határozza meg a paraméterben kapott Containerről, hogy megegyezik-e az input-jával
 	 * @param c
@@ -268,10 +271,8 @@ public class Pump extends Container implements Serializable {
 	 */
 	@Override
 	public void setInputState() {
-		if(!this.isDamaged){
-			if(output != null){
-				output.setInputState();
-			}
+		if(!this.isDamaged && output != null){
+			output.setInputState();
 		}
 	}
 
@@ -321,6 +322,7 @@ public class Pump extends Container implements Serializable {
 		this.maxPipeAmount = maxPipeAmount;
 	}
 
+	@Override
 	/**
 	 * Visszatér az isDamaged attribútum értékével.
 	 * @return boolean
@@ -337,6 +339,7 @@ public class Pump extends Container implements Serializable {
 		this.isDamaged = isDamaged;
 	}
 
+	@Override
 	/**
 	 * Visszatér az output csővel.
 	 * @return Pipe
@@ -353,6 +356,7 @@ public class Pump extends Container implements Serializable {
 		this.output = output;
 	}
 
+	@Override
 	/**
 	 * Visszatér az input csővel.
 	 * @return Pipe
@@ -361,6 +365,7 @@ public class Pump extends Container implements Serializable {
 		return input;
 	}
 
+	@Override
 	/**
 	 * Beállítja az input csövet a paraméterként kapottra.
 	 * @param input
@@ -376,14 +381,6 @@ public class Pump extends Container implements Serializable {
     public void setisDamaged(boolean b) {
 		isDamaged=b;
     }
-
-	/**
-	 * Visszatér az isDamaged attribútum értékével.
-	 * @return
-	 */
-	public boolean getisDamaged() {
-		return isDamaged;
-	}
 
 
 	@Override
@@ -596,12 +593,8 @@ public class Pump extends Container implements Serializable {
 	public boolean isVerticallyConnected(){
 		if(Map.getInstance().getGameMap() != null){
 			for(ContainerPos cp : Map.getInstance().getGameMap()){
-				if(cp.getContainer().equals(this)){
-					if(Map.getContainerAt(cp.getPosX(), cp.getPosY() + 1) != null) {
-						if (cp.getContainer().seeifNeighbors(Map.getContainerAt(cp.getPosX(), cp.getPosY() + 1).getContainer())) {
-							return true;
-						}
-					}
+				if(cp.getContainer().equals(this) && cp.getContainer().seeifNeighbors(Map.getContainerAt(cp.getPosX(), cp.getPosY() + 1).getContainer())){
+					return true;
 				}
 			}
 		}
