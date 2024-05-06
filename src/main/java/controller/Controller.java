@@ -78,7 +78,7 @@ public class Controller implements Serializable {
 	 * És így megy végig a víz egészen a ciszternáig (CS) ahol is legvégül majd sok kör lefolyása után szintén megjelenik a víz
 	 */
 	public void waterFlow() {
-		ArrayList<ContainerPos> containers = map.getGameMap();
+		ArrayList<ContainerPos> containers = (ArrayList<ContainerPos>) map.getGameMap();
 
 		for(ContainerPos c : containers){
 			c.getContainer().eval();

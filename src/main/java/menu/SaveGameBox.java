@@ -17,6 +17,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.IOException;
 
 public class SaveGameBox {
 
@@ -98,7 +99,11 @@ public class SaveGameBox {
             if (event.getCode() == KeyCode.ENTER) {
                 // Close the window when Enter is pressed
                 if(inputField.getText() != null && !invalidSaveName(inputField.getText())){
-                    Game.getInstance().saveGame(inputField.getText());
+                    try {
+                        Game.getInstance().saveGame(inputField.getText());
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
                     window.close();
                 }
                 else{

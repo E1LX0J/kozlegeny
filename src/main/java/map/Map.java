@@ -3,8 +3,7 @@ package map;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-import exception.MyException;
-import player.*;
+
 import container.*;
 
 /**
@@ -28,8 +27,8 @@ public class Map implements Serializable{
 	/**
 	 * A pályán lévő Containerek ArrayList-je.
 	 */
-	private static ArrayList<Container> containers = new ArrayList<Container>();
-	private static ArrayList<ContainerPos> gameMap = new ArrayList<ContainerPos>();
+	private static ArrayList<Container> containers = new ArrayList<>();
+	private static ArrayList<ContainerPos> gameMap = new ArrayList<>();
 
 	/**
 	 * Map osztály konstruktora.
@@ -57,15 +56,6 @@ public class Map implements Serializable{
 		leakedWater++;
 
 	}
-	
-	
-	/**
-	 * Eltávolít egy Container a játéktérről
-	 * @param c - Az eltávolítano kívánt Container
-	 */
-	public void removeElement(Container c) {
-		
-	}
 
 	/**
 	 * Hozzáad egy Containert a játéktérhez.
@@ -79,7 +69,7 @@ public class Map implements Serializable{
 	 * Visszatér a containers attribútum értékével.
 	 * @return Arraylist - A containerek
 	 */
-	public ArrayList<Container> getContainers() {
+	public List<Container> getContainers() {
 		return containers;
 	}
 
@@ -99,11 +89,9 @@ public class Map implements Serializable{
 	public static void addNeighbors(ContainerPos cp){
 		if(!Map.getInstance().getGameMap().isEmpty()) {
 			for (ContainerPos containerPos : Map.getInstance().getGameMap()) {
-				if (containerPos.isOnNeighboringTile(cp.getPosX(), cp.getPosY())) {
-					if (!(containerPos.getContainer().getNeighbors().contains(cp.getContainer()))) {
+				if (containerPos.isOnNeighboringTile(cp.getPosX(), cp.getPosY()) && (!(containerPos.getContainer().getNeighbors().contains(cp.getContainer())))) {
 						cp.getContainer().getNeighbors().add(containerPos.getContainer());
 						containerPos.getContainer().getNeighbors().add(cp.getContainer());
-					}
 				}
 			}
 		}
@@ -112,11 +100,9 @@ public class Map implements Serializable{
 	public static void removeNeighbors(ContainerPos cp){
 		if(!Map.getInstance().getGameMap().isEmpty()) {
 			for (ContainerPos containerPos : Map.getInstance().getGameMap()) {
-				if (containerPos.isOnNeighboringTile(cp.getPosX(), cp.getPosY())) {
-					if (!(containerPos.getContainer().getNeighbors().contains(cp.getContainer()))) {
+				if (containerPos.isOnNeighboringTile(cp.getPosX(), cp.getPosY()) && (!(containerPos.getContainer().getNeighbors().contains(cp.getContainer())))) {
 						cp.getContainer().getNeighbors().remove(containerPos.getContainer());
 						containerPos.getContainer().getNeighbors().remove(cp.getContainer());
-					}
 				}
 			}
 		}
@@ -132,7 +118,7 @@ public class Map implements Serializable{
 		return leakedWater;
 	}
 
-	public ArrayList<ContainerPos> getGameMap(){
+	public List<ContainerPos> getGameMap(){
 		return gameMap;
 	}
 

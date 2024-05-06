@@ -8,6 +8,7 @@ import player.Player;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.List;
 
 import static menu.Game_Window.updateGameScene;
 
@@ -57,10 +58,8 @@ public class Game implements Serializable{
                 count++;
             }
         }
-        if(count == Map.getInstance().getContainers().size()){
-            return true;
-        }
-        return false;
+
+        return count == Map.getInstance().getContainers().size();
     }
 
     public void checkForSticky(){
@@ -83,7 +82,7 @@ public class Game implements Serializable{
         }
     }
 
-    public ArrayList<Player> getPlayers(){
+    public List<Player> getPlayers(){
         return players;
     }
 
@@ -125,31 +124,20 @@ public class Game implements Serializable{
         this.turnCount = turnCount;
     }
 
-    public void saveGame(String filename) {
-        try {
-            FileOutputStream fileOut = new FileOutputStream("resources/saves/" + filename);
-            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+    public void saveGame(String filename) throws IOException {
+        try (FileOutputStream fileOut = new FileOutputStream("resources/saves/" + filename); ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
             out.writeObject(instance);
-            out.close();
-            fileOut.close();
-            System.out.println("Game saved successfully to " + filename);
         } catch (IOException e) {
-            System.out.println("Failed to save game: " + e.getMessage());
+            MyAlert.showInvalidMoveAlert("Nem sikerült");
         }
     }
 
     // Method to load the game state from a file
     public static Game loadGame(String filename) {
-        try {
-            FileInputStream fileIn = new FileInputStream(filename);
-            ObjectInputStream in = new ObjectInputStream(fileIn);
+        try (FileInputStream fileIn = new FileInputStream(filename); ObjectInputStream in = new ObjectInputStream(fileIn)) {
             instance = (Game) in.readObject();
-            in.close();
-            fileIn.close();
-            System.out.println("Game loaded successfully from " + filename);
             return instance;
         } catch (IOException | ClassNotFoundException e) {
-            System.out.println("Failed to load game: " + e.getMessage());
             return null;
         }
     }
