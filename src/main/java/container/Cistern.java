@@ -90,7 +90,6 @@ public class Cistern extends Container implements Serializable {
 		return true;
 	}
 
-
 	/**
 	 * Az inputState-hez tartozó kiírást valósítja meg, ez különösebben csak a víz mozgásának "grafikus" szemléltetésére kell
 	 * @String
@@ -126,91 +125,7 @@ public class Cistern extends Container implements Serializable {
 	 * @return
 	 */
 	public boolean amInput(Container c){
-
 		return this.input.equals(c);
-
-	}
-
-	@Override
-	public void getsOccupied() {
-		throw new UnsupportedOperationException("getsOccupied() cannot be performed because Cistern cannot be occupied");
-	}
-
-	/**
-	 * A Cistern osztály nem valósítja meg ezt a függvényt ezért erről tőbbet nem is beszélek
-	 */
-	@Override
-	public void movedFrom() {
-		throw new UnsupportedOperationException("movedFrom() has no meaning for Cistern because it can house more than one people");
-	}
-
-	/**
-	 * A Cistern osztály nem valósítja meg ezt a függvényt ezért erről tőbbet nem is beszélek
-	 */
-	@Override
-	public void alterPump(int x, int y, Type t) {
-		throw new UnsupportedOperationException("alterPump() cannot be performed because Cistern is not pump");
-	}
-
-	/**
-	 * A Cistern osztály nem valósítja meg ezt a függvényt ezért erről tőbbet nem is beszélek
-	 */
-	@Override
-	public void mendPipe() {
-		throw new UnsupportedOperationException("mendPipe() cannot be performed because Cistern is not pipe");
-	}
-
-	/**
-	 * A Cistern osztály nem valósítja meg ezt a függvényt ezért erről tőbbet nem is beszélek
-	 */
-	@Override
-	public void mendPump() {
-		throw new UnsupportedOperationException("mendPump() cannot be performed because Cistern is not pump");
-	}
-
-	/**
-	 * A Cistern osztály nem valósítja meg ezt a függvényt ezért erről tőbbet nem is beszélek
-	 */
-	@Override
-	public void puncturePipe() {
-		throw new UnsupportedOperationException("puncturePipe() cannot be performed because Cistern is not pipe");
-	}
-
-	/**
-	 * A Cistern osztály nem valósítja meg ezt a függvényt ezért erről tőbbet nem is beszélek
-	 */
-	@Override
-	public void insertPump(Player player) {
-		throw new UnsupportedOperationException("insertPump() cannot be performed because Cistern is not pipe");
-	}
-
-	/**
-	 * A Cistern osztály nem valósítja meg ezt a függvényt ezért erről tőbbet nem is beszélek
-	 */
-	@Override
-	public void extractPipe(Player player, int xCord, int yCord) {
-		throw new UnsupportedOperationException("extractPipe() cannot be performed because Cistern is not pump");
-	}
-
-	/**
-	 * A Cistern osztály nem valósítja meg ezt a függvényt ezért erről tőbbet nem is beszélek
-	 */
-	@Override
-	public void insertPipe(Player player, int xCord, int yCord) {
-		throw new UnsupportedOperationException("insertPipe() cannot be performed because Cistern is not pump");
-	}
-
-	/**
-	 * A Cistern osztály nem valósítja meg ezt a függvényt ezért erről tőbbet nem is beszélek
-	 */
-	@Override
-	public void pipeGetsSlippery() {
-		throw new UnsupportedOperationException("pipeGetsSlippery() cannot be performed because Cistern is not pipe");
-	}
-
-	@Override
-	public void pipeGetsSticky() {
-		throw new UnsupportedOperationException("pipeGetsSlippery() cannot be performed because Cistern is not pipe");
 	}
 
 	/**
@@ -237,14 +152,6 @@ public class Cistern extends Container implements Serializable {
 	}
 
 	/**
-	 * @return boolean
-	 */
-	@Override
-	public boolean getIsSticky() {
-		return false;
-	}
-
-	/**
 	 * A Cistern osztály nem valósítja meg ezt a függvényt ezért erről tőbbet nem is beszélek
 	 */
 	public void setInputState() {
@@ -260,39 +167,12 @@ public class Cistern extends Container implements Serializable {
 		return "CS\t";
 	}
 
-	@Override
-	public void damageContainer() {
-		throw new UnsupportedOperationException("damageContainer() cannot be performed because Cistern is not damageable");
-	}
-
-	/**
-	 * @return boolean
-	 */
-	@Override
-	public boolean isLooseEnd() {
-		return false;
-	}
-
-
-	/**
-	 * @return boolean
-	 */
-	@Override
-	public boolean isDamaged() {
-		return false;
-	}
-
 	/**
 	 * Vissaztér a Cistern bemeneti csövével
 	 * @return - A bemeneti cső
 	 */
 	public Pipe getInput() {
 		return input;
-	}
-
-	@Override
-	public Container getOutput() {
-		return null;
 	}
 
 	/**
@@ -374,18 +254,8 @@ public class Cistern extends Container implements Serializable {
 	}
 
 	@Override
-	public void setBreakOff(int rng) {
-		throw new UnsupportedOperationException("setBreakOff() cannot be performed because Cistern is not a pump so it won't be damaged due to aging");
-	}
-
-	@Override
 	public int queryCistern() {
 		return collectedWater;
-	}
-
-	@Override
-	public int mountainSpringQuery() {
-		return -1;
 	}
 
 	@Override

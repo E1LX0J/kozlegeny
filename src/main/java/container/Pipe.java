@@ -35,8 +35,8 @@ public class Pipe extends Container implements Serializable {
 	private boolean isSticky;
 	private int stickyTimer;
 
-	final int STICKY_TIMER = 3;
-	final int SLIPPERY_TIMER = 3;
+	static final int STICKY_TIMER = 3;
+	static final int SLIPPERY_TIMER = 3;
 
 
 	/**
@@ -44,11 +44,7 @@ public class Pipe extends Container implements Serializable {
 	 * @return boolean - Léphet-e ide játékos vagy sem.
 	 */
 	public boolean steppable() {
-
-		if(!isOccupied){
-			return true;
-		} else
-			return false;
+		return !isOccupied;
 	}
 
 
@@ -60,16 +56,6 @@ public class Pipe extends Container implements Serializable {
 		setOccupied(false);
 	}
 
-
-	/**
-	 * A Pipe nem valósítja meg ezt a függvényt, ezért erről nem is beszélek többet
-	 */
-	@Override
-	public void alterPump(int x, int y, Type t) {
-
-	}
-
-
 	/**
 	 * Ez a függvény a cső megjavításáért felelős függvény
 	 * Ha a cső ki van lyukasztva akkor javítjuk más esetben kivételt dobunk
@@ -80,16 +66,6 @@ public class Pipe extends Container implements Serializable {
 		} else
 			MyAlert.showInvalidMoveAlert("It wasn't damaged to begin with");
 	}
-
-
-	/**
-	 * A Pipe nem valósítja meg ezt a függvényt, ezért erről nem is beszélek többet
-	 */
-	@Override
-	public void mendPump() {
-
-	}
-
 
 	/**
 	 * Ez a függvény valósítja meg a cső kilyukasztását
@@ -282,24 +258,6 @@ public class Pipe extends Container implements Serializable {
 	}
 
 	/**
-	 * A Pipe nem valósítja meg ezt a függvényt, ezért erről nem is beszélek többet
-	 */
-	@Override
-	public void extractPipe(Player player, int xCord, int yCord) {
-
-	}
-
-	/**
-	 * A Pipe nem valósítja meg ezt a függvényt, ezért erről nem is beszélek többet
-	 */
-	@Override
-	public void insertPipe(Player player, int xCord, int yCord) {
-
-		MyAlert.showInvalidMoveAlert("Bruh, it's not possible");
-
-	}
-
-	/**
 	 * Az adott cső csúszóssá válik
 	 */
 	@Override
@@ -329,17 +287,6 @@ public class Pipe extends Container implements Serializable {
 		this.isSticky = true;
 	}
 
-	@Override
-	public void takePipeFromCs(Player player) {
-
-	}
-
-	@Override
-	public void takePumpFromCs(Player player) {
-
-	}
-
-
 	/**
 	 * @return boolean
 	 */
@@ -354,14 +301,6 @@ public class Pipe extends Container implements Serializable {
 	 */
 	public void setSticky(boolean b){
 		this.isSticky = b;
-	}
-
-	/**
-	 * @param pipe
-	 */
-	@Override
-	public void setInput(Pipe pipe) {
-
 	}
 
 	@Override
@@ -454,16 +393,6 @@ public class Pipe extends Container implements Serializable {
 		}
 	}
 
-	@Override
-	public int hasPipes() {
-		return -1;
-	}
-
-	@Override
-	public boolean hasPump() {
-		return false;
-	}
-
 
 	/**
 	 * Előzőleg hazudtam igazából ez a gerince az egésznek mivel is itt történik meg ténylegesen az inputState módosítása
@@ -491,26 +420,12 @@ public class Pipe extends Container implements Serializable {
 	 * @return boolean
 	 */
 	public boolean isLooseEnd() {
-
-		if(getNeighbors().size()==1)
-			return true;
-		else
-			return false;
+		return getNeighbors().size()==1;
 	}
 
 	@Override
 	public boolean isDamaged() {
 		return isLeaked;
-	}
-
-	@Override
-	public Container getInput() {
-		return null;
-	}
-
-	@Override
-	public Container getOutput() {
-		return null;
 	}
 
 	/**
@@ -549,22 +464,6 @@ public class Pipe extends Container implements Serializable {
 		return randomInterval;
 	}
 
-
-	@Override
-	public void setBreakOff(int rng) {
-
-	}
-
-	@Override
-	public int queryCistern() {
-		return -1;
-	}
-
-	@Override
-	public int mountainSpringQuery() {
-		return -1;
-	}
-
 	public void setStateofInput(boolean first, boolean second){
 		inputState[0] = first;
 		inputState[1] = second;
@@ -585,8 +484,8 @@ public class Pipe extends Container implements Serializable {
 			return basePath + orientation + leakStatus + waterStatus + stickyStatus + slipperyStatus + ".png";
 
 	}
-	public String getOrientation()
-	{
+
+	public String getOrientation() {
 		//Get the current position of the element
 		ContainerPos cp = new ContainerPos();
 		for(ContainerPos containerPos : Map.getInstance().getGameMap()){
@@ -617,14 +516,11 @@ public class Pipe extends Container implements Serializable {
 			grid[x][y] = containerPos.getContainer();
 		}
 
-		for(ContainerPos containerPos : Map.getInstance().getGameMap())
-		{
+		for(ContainerPos containerPos : Map.getInstance().getGameMap()) {
 			int x = cp.getPosX();
 			int y = cp.getPosY();
-			if(grid[x][y]==containerPos.getContainer())
-			{
-				if (x > 0 && containerPos.getContainer().seeifNeighbors(grid[x - 1][y]))
-				{
+			if(grid[x][y]==containerPos.getContainer()) {
+				if (x > 0 && containerPos.getContainer().seeifNeighbors(grid[x - 1][y])) {
 					// DownToLeft
 					if (y < grid[x].length - 1 && containerPos.getContainer().seeifNeighbors(grid[x][y + 1]))
 						return "PipeDownToLeft";
@@ -640,8 +536,7 @@ public class Pipe extends Container implements Serializable {
 					return "PipeLeftRight_UpSide";
 				}
 
-				if (x + 1 < grid.length && containerPos.getContainer().seeifNeighbors(grid[x + 1][y]))
-				{
+				if (x + 1 < grid.length && containerPos.getContainer().seeifNeighbors(grid[x + 1][y])) {
 
 					// DownToRight
 					if (y + 1 < grid[x].length && containerPos.getContainer().seeifNeighbors(grid[x][y + 1]))
