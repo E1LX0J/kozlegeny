@@ -97,23 +97,10 @@ public class ContainerPos implements Serializable {
      * @param yCord - Y koordináta
      * @return - true/false, mellette van-e vagy sem.
      */
-    public boolean isOnNeighboringTile(int xCord, int yCord){
-        if(this.posX - 1 >= 0){
-            if(xCord == this.posX - 1 && yCord == this.posY){
-                return true;
-            }
-        }
-        if(this.posY - 1 >= 0){
-            if(xCord == this.posX && yCord == this.posY - 1){
-                return true;
-            }
-        }
-        if(xCord == this.posX + 1 && yCord == this.posY){
-            return true;
-        }
-        if(xCord == this.posX && yCord == this.posY + 1) {
-            return true;
-        }
-        return false;
+    public boolean isOnNeighboringTile(int xCord, int yCord) {
+        return (xCord == this.posX - 1 && yCord == this.posY) ||
+                (xCord == this.posX && yCord == this.posY - 1) ||
+                (xCord == this.posX + 1 && yCord == this.posY) ||
+                (xCord == this.posX && yCord == this.posY + 1);
     }
 }

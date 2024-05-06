@@ -2,6 +2,7 @@ package container;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 import exception.MyException;
 import player.*;
@@ -14,7 +15,7 @@ public abstract class Container implements Serializable {
 	/**
 	 * A Container mellett található Containerek ArrayList-je
 	 */
-	protected ArrayList<Container> neighbors = new ArrayList<Container>();
+	protected ArrayList<Container> neighbors = new ArrayList<>();
 
 	/**
 	 * Ez az attribútum felelős a víz mozgásáért
@@ -263,7 +264,7 @@ public abstract class Container implements Serializable {
 	 * Visszatér a neighbors attribúmmal
 	 * @return ArrayList - neighbors attribútum
 	 */
-	public ArrayList<Container> getNeighbors() {
+	public List<Container> getNeighbors() {
 		return neighbors;
 	}
 
@@ -271,8 +272,8 @@ public abstract class Container implements Serializable {
 	 * Beállítja a neigbors attribútumot a paraméterként kapottra
 	 * @param neighbors - A beállítani kívánt attribútum
 	 */
-	public void setNeighbors(ArrayList<Container> neighbors) {
-		this.neighbors = neighbors;
+	public void setNeighbors(List<Container> neighbors) {
+		this.neighbors = (ArrayList<Container>) neighbors;
 	}
 
 	public boolean isDamaged(){
@@ -283,12 +284,7 @@ public abstract class Container implements Serializable {
 		return null;
 	}
 	public boolean isEmpty(){
-		if(!inputState[0] && !inputState[1]){
-			return true;
-		}
-		else{
-			return false;
-		}
+		return !inputState[0] && !inputState[1];
 	}
 	public Container getOutput(){
 		return null;

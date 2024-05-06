@@ -6,6 +6,7 @@ import menu.MyAlert;
 import player.*;
 
 import java.io.Serializable;
+import java.util.Random;
 
 /**
  * Ez a cső, ez felelős a víz szállításához, ennek segítségével szállítódhat a víz a ciszternába
@@ -38,7 +39,10 @@ public class Pipe extends Container implements Serializable {
 	static final int STICKY_TIMER = 3;
 	static final int SLIPPERY_TIMER = 3;
 
+	private Random random;
 
+
+	@Override
 	/**
 	 * Megadja, hogy az adott csőre léphet-e játékos
 	 * @return boolean - Léphet-e ide játékos vagy sem.
@@ -48,6 +52,7 @@ public class Pipe extends Container implements Serializable {
 	}
 
 
+	@Override
 	/**
 	 * Ez a függvény valósítja azt meg, hogy a cső amelyről a játékos ellépet átállítsa azt, hogy a cső már nem foglalt
 	 * @return
@@ -56,6 +61,7 @@ public class Pipe extends Container implements Serializable {
 		setOccupied(false);
 	}
 
+	@Override
 	/**
 	 * Ez a függvény a cső megjavításáért felelős függvény
 	 * Ha a cső ki van lyukasztva akkor javítjuk más esetben kivételt dobunk
@@ -67,6 +73,7 @@ public class Pipe extends Container implements Serializable {
 			MyAlert.showInvalidMoveAlert("It wasn't damaged to begin with");
 	}
 
+	@Override
 	/**
 	 * Ez a függvény valósítja meg a cső kilyukasztását
 	 * Megnézzük, hogy a cső lyukas-e ha nem kilyukasztjuk (beállítjuk az isLeaked attribútumát true-ra)
@@ -76,7 +83,7 @@ public class Pipe extends Container implements Serializable {
 		if(!this.isLeaked){
 			if(this.canBeLeaked) {
 				this.setLeaked(true);
-				this.randomInterval = (int)(Math.random() * 10);
+				this.randomInterval = (random.nextInt() * 10);
 				this.leakedTimer = Game.getInstance().getTurnCount();
 				this.canBeLeaked = false;
 			} else{
@@ -99,14 +106,14 @@ public class Pipe extends Container implements Serializable {
 		}
 
 		for(ContainerPos containerPos : Map.getInstance().getGameMap()){
-			if(containerPos.getPosY() - 1 >= 0)
-				if((containerPos.getPosX() == cp.getPosX()) && (containerPos.getPosY() - 1 == cp.getPosY()) && containerPos.getContainer().seeifNeighbors(cp.getContainer())){
-					return true;
-				}
+			if(containerPos.getPosY() - 1 >= 0 && (containerPos.getPosX() == cp.getPosX()) && (containerPos.getPosY() - 1 == cp.getPosY()) && containerPos.getContainer().seeifNeighbors(cp.getContainer()))
+				return true;
 		}
+
 		return false;
 	}
 
+	@Override
 	/**
 	 * A csőhöz csatlakoztatja hozzá a paraméterként kapott játékos által hordozott pumpát.
 	 * @param player - A játékos
@@ -308,6 +315,7 @@ public class Pipe extends Container implements Serializable {
 		return true;
 	}
 
+	@Override
 	/**
 	 * Az inputState-hez tartozó kiírást valósítja meg, ez különösebben csak a víz mozgásának "grafikus" szemléltetésére kell
 	 * @return
@@ -324,26 +332,18 @@ public class Pipe extends Container implements Serializable {
 	 */
 	@Override
 	public void lifeCycle(int turnCount) {
-
-		if(!this.canBeLeaked){
-			if((this.leakedTimer + this.randomInterval) == turnCount){
-				this.canBeLeaked = true;
-				this.leakedTimer = 0;
-			}
+		if (!this.canBeLeaked && this.leakedTimer + this.randomInterval == turnCount) {
+			this.canBeLeaked = true;
+			this.leakedTimer = 0;
 		}
-		if(this.isSticky){
-			if(this.stickyTimer + STICKY_TIMER == turnCount){
-				this.isSticky = false;
-				this.stickyTimer = 0;
-			}
+		if (this.isSticky && this.stickyTimer + STICKY_TIMER == turnCount) {
+			this.isSticky = false;
+			this.stickyTimer = 0;
 		}
-		if(this.isSlippery) {
-			if (this.slipperyTimer + SLIPPERY_TIMER == turnCount) {
-				this.isSlippery = false;
-				this.slipperyTimer = 0;
-			}
+		if (this.isSlippery && this.slipperyTimer + SLIPPERY_TIMER == turnCount) {
+			this.isSlippery = false;
+			this.slipperyTimer = 0;
 		}
-
 	}
 
 	@Override
@@ -352,6 +352,7 @@ public class Pipe extends Container implements Serializable {
 	}
 
 
+	@Override
 	/**
 	 * Ez a függvény a gerince a víz mozgatásának
 	 * Ez a függvény valósítja meg a víz mozgásának csőnél való kiértékelését
@@ -394,6 +395,7 @@ public class Pipe extends Container implements Serializable {
 	}
 
 
+	@Override
 	/**
 	 * Előzőleg hazudtam igazából ez a gerince az egésznek mivel is itt történik meg ténylegesen az inputState módosítása
 	 * Amennyiben ez a függvény meghívódik az inputState[1] átállítjuk true (igaz) értékre (azaz, víz folyt/folyik bele/benne)
@@ -414,6 +416,7 @@ public class Pipe extends Container implements Serializable {
 		this.isLeaked = true;
 	}
 
+	@Override
 	/**
 	 * Visszatér azzal, hogy a cső egyik vége üresen lóg-e
 	 *
@@ -433,7 +436,7 @@ public class Pipe extends Container implements Serializable {
 	 * @return boolean
 	 */
 	public boolean isLeaked() {
-		return isLeaked;
+		return isDamaged();
 	}
 
 	/**
@@ -488,9 +491,12 @@ public class Pipe extends Container implements Serializable {
 	public String getOrientation() {
 		//Get the current position of the element
 		ContainerPos cp = new ContainerPos();
-		for(ContainerPos containerPos : Map.getInstance().getGameMap()){
-			if(containerPos.getContainer().equals(this)){
-				cp = containerPos;
+		if(Map.getInstance().getGameMap() != null)
+		{
+			for(ContainerPos containerPos : Map.getInstance().getGameMap()){
+				if(containerPos.getContainer().equals(this)){
+					cp = containerPos;
+				}
 			}
 		}
 
