@@ -2,9 +2,9 @@ package container;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 import player.Player;
-import player.Type;
 
 /**
  * Először is úgy döntöttünk, hogy a Cistern is felvesszük Objektum katalógusba,
@@ -68,6 +68,7 @@ public class Cistern extends Container implements Serializable {
 	}
 
 
+	@Override
 	/**
 	 * Minden harmadik körben létrehoz egy csövet
 	 * @param turnCount
@@ -80,7 +81,7 @@ public class Cistern extends Container implements Serializable {
 		}
 	}
 
-
+	@Override
 	/**
 	 * Mindig true-val tér vissza, ugyanis a Cistern-re mindig rá lehet lépni,
 	 * az ot lévő játékosok számától függetlenül
@@ -90,6 +91,7 @@ public class Cistern extends Container implements Serializable {
 		return true;
 	}
 
+	@Override
 	/**
 	 * Az inputState-hez tartozó kiírást valósítja meg, ez különösebben csak a víz mozgásának "grafikus" szemléltetésére kell
 	 * @String
@@ -99,6 +101,7 @@ public class Cistern extends Container implements Serializable {
 		return "Cistern inputStatjének első illetve második eleme: " + this + ": "+ inputState[0]+ ',' + inputState[1];
 	}
 
+	@Override
 	/**
 	 * Ez a függvény valósítja meg a ciszternához tartozó kiértékelést
 	 * Amennyiben folyik bele víz (inputState[0]) növeljük a belekerült víz mennyiségét
@@ -119,6 +122,7 @@ public class Cistern extends Container implements Serializable {
 		return freePump != null;
 	}
 
+	@Override
 	/**
 	 * Azt mondja meg ez a függvény, hogy a paraméterében kapott Container megegyezik-e a ciszterna inputjával-e
 	 * @param c
@@ -151,6 +155,7 @@ public class Cistern extends Container implements Serializable {
 		}
 	}
 
+	@Override
 	/**
 	 * A Cistern osztály nem valósítja meg ezt a függvényt ezért erről tőbbet nem is beszélek
 	 */
@@ -167,6 +172,7 @@ public class Cistern extends Container implements Serializable {
 		return "CS\t";
 	}
 
+	@Override
 	/**
 	 * Vissaztér a Cistern bemeneti csövével
 	 * @return - A bemeneti cső
@@ -175,6 +181,7 @@ public class Cistern extends Container implements Serializable {
 		return input;
 	}
 
+	@Override
 	/**
 	 * Beállítja a Cistern bemeneti csövét
 	 * @param input - A beállítani kívánt cső
@@ -241,7 +248,7 @@ public class Cistern extends Container implements Serializable {
 	 * Visszatér Cisternben keletkezett Pipe-ok ArrayList-jével
 	 * @return ArrayList - A keletkezett Pipe-ok
 	 */
-	public ArrayList<Pipe> getMadePipes() {
+	public List<Pipe> getMadePipes() {
 		return madePipes;
 	}
 
@@ -249,8 +256,8 @@ public class Cistern extends Container implements Serializable {
 	 * Beállítja a MadePipes attribútum értékét
 	 * @param madePipes - A beállítani kívánt Pipe ArrayList
 	 */
-	public void setMadePipes(ArrayList<Pipe> madePipes) {
-		this.madePipes = madePipes;
+	public void setMadePipes(List<Pipe> madePipes) {
+		this.madePipes = (ArrayList<Pipe>) madePipes;
 	}
 
 	@Override

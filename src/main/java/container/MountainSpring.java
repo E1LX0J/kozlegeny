@@ -1,8 +1,5 @@
 package container;
 
-import player.Player;
-import player.Type;
-
 import java.io.Serializable;
 
 /**
@@ -37,6 +34,7 @@ public class MountainSpring extends Container implements Serializable {
 		waterCapac--;
 	}
 
+	@Override
 	/**
 	 * @return String
 	 */
@@ -45,6 +43,7 @@ public class MountainSpring extends Container implements Serializable {
 		return "MountainSpring inputStatjének első illetve második eleme: " + this + ": "+ inputState[0] + ',' + inputState[1];
 	}
 
+	@Override
 	/**
 	 * A hegyi forráshoz tartozó kiértékelő függvény
 	 * Ez a függvény egyszerűen csak egy feltételben megnézi, hogy van-e benne víz ha van megyünk mélyebbre
@@ -64,6 +63,7 @@ public class MountainSpring extends Container implements Serializable {
 		}
 	}
 
+	@Override
 	/**
 	 * A Mountain Spring ezt a függvényt nem valósítja meg, úgyhogy erről többet nem is beszélek
 	 */
