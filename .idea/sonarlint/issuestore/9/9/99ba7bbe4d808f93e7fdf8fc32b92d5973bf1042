@@ -1,0 +1,50 @@
+
+K
+java:S3740Õ"/Provide the parametrized type for this generic.(ÿ¢Å“ùÿÿÿÿ
+K
+java:S3740"/Provide the parametrized type for this generic.(ÿ¢Å“ùÿÿÿÿ
+o
+java:S2293%"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ö¥€’
+‡
+java:S1192Ã"pDefine a constant instead of duplicating this literal "No suitable option from Choice Box was selected" 3 times.(¸ŒŞ
+p
+java:S1192m"ZDefine a constant instead of duplicating this literal "file:resources/border.png" 4 times.(™ó Ï
+b
+java:S1192“"FDefine a constant instead of duplicating this literal "Right" 6 times.(²Ášøøÿÿÿÿ
+]
+java:S1192™"FDefine a constant instead of duplicating this literal "Input" 5 times.(õÙ
+^
+java:S1192™"GDefine a constant instead of duplicating this literal "Output" 5 times.(õÙ
+]
+java:S1192ã"FDefine a constant instead of duplicating this literal "Arial" 8 times.(´Ç¡Ç
+s
+java:S1192“"WDefine a constant instead of duplicating this literal "Choice Can Be Selected" 4 times.(²Ášøøÿÿÿÿ
+b	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(„¦†
+e
+java:S3824Õ"NReplace this "Map.get()" and condition with a call to "Map.computeIfAbsent()".(ûß­à
+P
+java:S1118":Add a private constructor to hide the implicit public one.(„¦†
+g
+java:S3776L"RRefactor this method to reduce its Cognitive Complexity from 70 to the 15 allowed.(ÅŞ
+H
+java:S1172L"3Remove this unused method parameter "primaryStage".(ÅŞ
+H
+java:S1135Q"2Complete the task associated to this TODO comment.(…ïœ†
+H
+java:S1602š",Remove useless curly braces around statement(³›Àûûÿÿÿÿ
+H
+java:S1602",Remove useless curly braces around statement(»âÜúÿÿÿÿ
+n
+java:S3776í"RRefactor this method to reduce its Cognitive Complexity from 35 to the 15 allowed.(´ÌĞşÿÿÿÿÿ
+H
+java:S1128"-Remove this unused import 'java.util.Random'.(èøÉ›ùÿÿÿÿ
+P
+java:S1128";Remove this unused import 'javafx.application.Application'.(í™şj
+K
+java:S1128"5Remove this unused import 'javafx.scene.media.Media'.(¿àÆ¾
+P
+java:S1128";Remove this unused import 'javafx.scene.media.MediaPlayer'.(‡µºU
+G
+java:S1128"1Remove this unused import 'javafx.util.Duration'.(ç½®§
+Ü
+java:S6541L"ÆA "Brain Method" was detected. Refactor it to reduce at least one of the following metrics: LOC from 300 to 64, Complexity from 16 to 14, Nesting Level from 5 to 2, Number of Variables from 70 to 6.(ÅŞ

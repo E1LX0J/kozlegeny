@@ -1,14 +1,11 @@
 package menu;
 
-import container.ContainerPos;
-import controller.Game;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -18,10 +15,6 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.*;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import map.Map;
-import player.Mechanic;
-import player.Player;
-import player.Saboteur;
 
 import java.nio.file.Paths;
 

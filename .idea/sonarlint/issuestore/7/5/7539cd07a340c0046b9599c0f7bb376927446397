@@ -1,0 +1,20 @@
+
+g	java:S112i"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8Ó‰Êóô1
+š
+java:S2293,"YReplace the type specification in this constructor call with the diamond operator ("<>").(†ÖüñúÿÿÿÿJ$29188688-71f2-4f06-b39b-ed0779f8b7cd
+l
+java:S1066Œ"/Merge this if statement with the enclosing one.(ƒ·—J$c29ed41e-f033-480e-8397-914e7e0388e4
+u
+java:S1118":Add a private constructor to hide the implicit public one.(õŠÙ)J$79c272ef-44e1-4fd0-8241-4b0ed3d69945
+z
+java:S1854'"9Remove this useless assignment to local variable "sText".(ÆáúÓıÿÿÿÿJ$42dbe5bd-2ec5-41e6-bd46-42a5b392594d
+}
+java:S1854!"<Remove this useless assignment to local variable "saveText".(¿‘»ôşÿÿÿÿJ$8dda4418-ed4d-4ee3-aa8f-e07af7399ce6
+n
+java:S1481!"-Remove this unused "saveText" local variable.(¿‘»ôşÿÿÿÿJ$4f79061f-9c42-4e2a-9d7c-2d5996d2810c
+k
+java:S1481'"*Remove this unused "sText" local variable.(ÆáúÓıÿÿÿÿJ$59cb67e0-d7af-492f-9d3b-0d54ae13c99c
+m
+java:S1602J",Remove useless curly braces around statement(³›ÀûûÿÿÿÿJ$caac2ec1-70da-4e0a-9084-25b19b39d708
+v
+java:S1128":Remove this unused import 'javafx.scene.layout.StackPane'.(™÷èòJ$6259a70a-7d48-41d9-8494-3f867e7bc6a0
