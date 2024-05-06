@@ -1,0 +1,30 @@
+
+‘
+java:S1192–"TDefine a constant instead of duplicating this literal "One Pair of Players" 3 times.(ĞÀÿJ$47b37b2b-7d37-4efe-b935-fe3e4317f217
+
+java:S1192‡"SDefine a constant instead of duplicating this literal "-fx-fill: #000000;" 3 times.(»ø¦J$fb7232af-3e99-44d1-a210-d917fc50be5e
+–
+java:S1104"UMake mainScene a static final constant or non-public and provide accessors if needed.(·¨ĞòıÿÿÿÿJ$b0cc9d92-4e77-41fe-a406-780a982a881b
+™
+java:S1104"XMake newGameScene a static final constant or non-public and provide accessors if needed.(·¨ĞòıÿÿÿÿJ$ced1f87b-458a-4d63-870e-77ff7cafc39c
+˜
+java:S1104 "WMake mediaPlayer a static final constant or non-public and provide accessors if needed.(­ÁûøÿÿÿÿJ$62d96ed2-2ab1-432d-8b52-468f3c67e82b
+p
+java:S1444"/Make this "public static mainScene" field final(·¨ĞòıÿÿÿÿJ$5a210970-98e6-43ab-bd32-bbd38abbb027
+s
+java:S1444"2Make this "public static newGameScene" field final(·¨ĞòıÿÿÿÿJ$82ff5add-10ab-40cb-af3a-d4695d377aed
+r
+java:S1444 "1Make this "public static mediaPlayer" field final(­ÁûøÿÿÿÿJ$b395be6f-0442-4297-add7-902d0ec71a75
+ˆ	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(Ï§¬ÉJ$48814311-f052-444e-9b52-101b571cdfe9
+“	java:S116"SRename this field "new_game" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ëÇÉÎşÿÿÿÿJ$fc70e77a-7be0-40ae-aeed-be88fd8d8b38
+”	java:S116"TRename this field "load_game" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ëÇÉÎşÿÿÿÿJ$35c20d95-3717-4899-9bfb-4969f31ce5b0
+†
+java:S1659"EDeclare "new_game" and all following declarations on a separate line.(ëÇÉÎşÿÿÿÿJ$20df92a7-15a4-47ee-8aeb-3d629d5e04d2
+k
+java:S1659"*Declare "newGameScene" on a separate line.(·¨ĞòıÿÿÿÿJ$0dcb6e6e-8056-4bd3-a390-3d7dd20dee1f
+r
+java:S2696H"6Make the enclosing method "static" or remove this set.(•œ†ÎJ$38e62153-a017-4262-b07d-802f0fb484e0
+x
+java:S2696Í"6Make the enclosing method "static" or remove this set.(‚ê„ıÿÿÿÿJ$d402d06b-88ff-4ff7-9e8e-798f257eb544
+s
+java:S2696Š"6Make the enclosing method "static" or remove this set.(çå¬J$48329e47-cf3b-4286-952b-4c6f9040bce0

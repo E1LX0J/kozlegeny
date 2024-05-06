@@ -21,7 +21,6 @@ public class Game implements Serializable{
     private int turnCount = 0;
     private int currentPlayerIdx = 0;
 
-
     private Game(){
 
     }
