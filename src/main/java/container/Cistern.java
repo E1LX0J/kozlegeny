@@ -50,40 +50,37 @@ public class Cistern extends Container implements Serializable {
 		input.neighbors.add(this);
         this.collectedWater = 0;
         this.freePump = null;
-        this.madePipes = new ArrayList<Pipe>();
+        this.madePipes = new ArrayList<>();
     }
 
 	public Cistern(){
 		input = null;
 		collectedWater = 0;
 		freePump = null;
-		madePipes = new ArrayList<Pipe>();
+		madePipes = new ArrayList<>();
 	}
 
 	/**
 	 * Ezzel a metódussal tudjuk növelni a ciszternában lévő víz mennyiségét.
 	 */
-	public void increaseCollectedWater()
-	{
+	public void increaseCollectedWater() {
 		collectedWater++;
 	}
-	
-	
+
+
 	/**
 	 * Minden harmadik körben létrehoz egy csövet
 	 * @param turnCount
 	 */
-	public void lifeCycle(int turnCount)
-	{
-		if(turnCount != 0)
-			if(turnCount%8==0)
-				madePipes.add(new Pipe());
-			if(turnCount%15 == 0){
-				freePump = new Pump(4);
-			}
+	public void lifeCycle(int turnCount) {
+		if(turnCount != 0 && turnCount%8==0)
+			madePipes.add(new Pipe());
+		else if (turnCount != 0 && turnCount%15==0) {
+			freePump = new Pump(4);
+		}
 	}
 
-	
+
 	/**
 	 * Mindig true-val tér vissza, ugyanis a Cistern-re mindig rá lehet lépni,
 	 * az ot lévő játékosok számától függetlenül
@@ -120,10 +117,7 @@ public class Cistern extends Container implements Serializable {
 
 	@Override
 	public boolean hasPump() {
-		if(freePump != null){
-			return true;
-		}
-		return false;
+		return freePump != null;
 	}
 
 	/**
@@ -139,7 +133,7 @@ public class Cistern extends Container implements Serializable {
 
 	@Override
 	public void getsOccupied() {
-
+		throw new UnsupportedOperationException("getsOccupied() cannot be performed because Cistern cannot be occupied");
 	}
 
 	/**
@@ -147,7 +141,7 @@ public class Cistern extends Container implements Serializable {
 	 */
 	@Override
 	public void movedFrom() {
-
+		throw new UnsupportedOperationException("movedFrom() has no meaning for Cistern because it can house more than one people");
 	}
 
 	/**
@@ -155,7 +149,7 @@ public class Cistern extends Container implements Serializable {
 	 */
 	@Override
 	public void alterPump(int x, int y, Type t) {
-
+		throw new UnsupportedOperationException("alterPump() cannot be performed because Cistern is not pump");
 	}
 
 	/**
@@ -163,7 +157,7 @@ public class Cistern extends Container implements Serializable {
 	 */
 	@Override
 	public void mendPipe() {
-
+		throw new UnsupportedOperationException("mendPipe() cannot be performed because Cistern is not pipe");
 	}
 
 	/**
@@ -171,7 +165,7 @@ public class Cistern extends Container implements Serializable {
 	 */
 	@Override
 	public void mendPump() {
-
+		throw new UnsupportedOperationException("mendPump() cannot be performed because Cistern is not pump");
 	}
 
 	/**
@@ -179,7 +173,7 @@ public class Cistern extends Container implements Serializable {
 	 */
 	@Override
 	public void puncturePipe() {
-
+		throw new UnsupportedOperationException("puncturePipe() cannot be performed because Cistern is not pipe");
 	}
 
 	/**
@@ -187,7 +181,7 @@ public class Cistern extends Container implements Serializable {
 	 */
 	@Override
 	public void insertPump(Player player) {
-
+		throw new UnsupportedOperationException("insertPump() cannot be performed because Cistern is not pipe");
 	}
 
 	/**
@@ -195,7 +189,7 @@ public class Cistern extends Container implements Serializable {
 	 */
 	@Override
 	public void extractPipe(Player player, int xCord, int yCord) {
-
+		throw new UnsupportedOperationException("extractPipe() cannot be performed because Cistern is not pump");
 	}
 
 	/**
@@ -203,7 +197,7 @@ public class Cistern extends Container implements Serializable {
 	 */
 	@Override
 	public void insertPipe(Player player, int xCord, int yCord) {
-
+		throw new UnsupportedOperationException("insertPipe() cannot be performed because Cistern is not pump");
 	}
 
 	/**
@@ -211,21 +205,20 @@ public class Cistern extends Container implements Serializable {
 	 */
 	@Override
 	public void pipeGetsSlippery() {
-
+		throw new UnsupportedOperationException("pipeGetsSlippery() cannot be performed because Cistern is not pipe");
 	}
 
-	
-	/** 
+	@Override
+	public void pipeGetsSticky() {
+		throw new UnsupportedOperationException("pipeGetsSlippery() cannot be performed because Cistern is not pipe");
+	}
+
+	/**
 	 * @return boolean
 	 */
 	@Override
 	public boolean getIsSlippery() {
 		return false;
-	}
-
-	@Override
-	public void pipeGetsSticky() {
-
 	}
 
 	@Override
@@ -243,7 +236,7 @@ public class Cistern extends Container implements Serializable {
 		}
 	}
 
-	/** 
+	/**
 	 * @return boolean
 	 */
 	@Override
@@ -258,8 +251,8 @@ public class Cistern extends Container implements Serializable {
 		inputState[1] = true;
 	}
 
-	
-	/** 
+
+	/**
 	 * @return String
 	 */
 	@Override
@@ -269,10 +262,10 @@ public class Cistern extends Container implements Serializable {
 
 	@Override
 	public void damageContainer() {
-
+		throw new UnsupportedOperationException("damageContainer() cannot be performed because Cistern is not damageable");
 	}
 
-	/** 
+	/**
 	 * @return boolean
 	 */
 	@Override
@@ -280,8 +273,8 @@ public class Cistern extends Container implements Serializable {
 		return false;
 	}
 
-	
-	/** 
+
+	/**
 	 * @return boolean
 	 */
 	@Override
@@ -382,7 +375,7 @@ public class Cistern extends Container implements Serializable {
 
 	@Override
 	public void setBreakOff(int rng) {
-		
+		throw new UnsupportedOperationException("setBreakOff() cannot be performed because Cistern is not a pump so it won't be damaged due to aging");
 	}
 
 	@Override

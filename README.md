@@ -18,3 +18,4 @@ Hogyan kell elindítani az alkalmazást gradle segítségével
         -ezt követően nyisd meg a cmd-t és cd-z be ebbe a mappába
         -írd be, hogy gradlew run
         -várj és elvileg kész is (ha megvan a megfelelő jdk verziód)
+đ
