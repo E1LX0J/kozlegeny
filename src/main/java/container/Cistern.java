@@ -25,10 +25,7 @@ public class Cistern extends Container implements Serializable {
 	 */
 	private int collectedWater;
 
-	/**
-	 * Itt tároljuk a mozgatható pumpát.
-	 */
-	private Pump freePump;
+
 
 	/**
 	 * Ez felel a csővek véletlenszerű időközönkénti készítéséért/létrehozásáért.

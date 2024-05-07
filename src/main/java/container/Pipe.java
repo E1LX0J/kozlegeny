@@ -39,7 +39,7 @@ public class Pipe extends Container implements Serializable {
 	static final int STICKY_TIMER = 3;
 	static final int SLIPPERY_TIMER = 3;
 
-	private Random random;
+	private Random random=new Random();
 
 
 	@Override
