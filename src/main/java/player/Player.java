@@ -32,6 +32,8 @@ public class Player implements Serializable {
 
 	private boolean getSticky = false;
 
+	public boolean isSticky(){return getSticky;}
+
 	/**
 	 * A játékos által hordozott csövek listája.
 	 */
@@ -157,8 +159,10 @@ public class Player implements Serializable {
 			neighbors.add(container);
 		}
 
+
 		if(getSticky){
-			MyAlert.showStickyMoveAlert("Sticky");
+			//Kivettem az alertet, mert sticky lépés teszt közben nem tudom ezt tesztelni.
+			//MyAlert.showStickyMoveAlert("Sticky");
 			return;
 		}
 
