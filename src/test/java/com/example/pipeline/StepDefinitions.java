@@ -1,4 +1,4 @@
-package stepdefinitions;
+package com.example.pipeline;
 
 import container.Cistern;
 import container.Container;
@@ -12,7 +12,7 @@ import player.Mechanic;
 import player.Player;
 import player.Saboteur;
 
-public class PlayerActions {
+public class StepDefinitions {
     private Player player;
     private Container container1; //Used for init pipe/cistern
     private Container container2; //Used for init pump

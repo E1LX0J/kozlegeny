@@ -56,8 +56,7 @@ dependencies {
   testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 }
 
-test {
-  useJUnitPlatform()  }
+
 
 jlink {
   imageZip = project.file("${buildDir}/distributions/app-${javafx.platform.classifier}.zip")
@@ -70,3 +69,29 @@ jlink {
 jlinkZip {
   group = 'distribution'
 }
+
+configurations {
+  cucumberRuntime {
+    extendsFrom testImplementation
+  }
+}
+
+project.ext {
+  cucumberVersion = '5.6.0'
+}
+
+dependencies {
+  testImplementation 'io.cucumber:cucumber-java:' + cucumberVersion
+}
+
+test () {
+  dependsOn assemble, compileTestJava
+  doLast {
+    javaexec {
+      main = "io.cucumber.core.cli.Main"
+      classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
+      args = ['--plugin', 'html:reports/test-report', '--plugin', 'pretty', '--glue', 'com.example.pipeline', 'src/test/resources']
+    }
+  }
+}
+
