@@ -242,7 +242,7 @@ public abstract class Container implements Serializable {
 	 * Itt tároljuk a mozgatható pumpát.
 	 * ez csak teszteléshez kell most lekérdezni
 	 */
-	protected Pump freePump;
+
 	public void setFreePump(Pump freePump) {
 	}
 

@@ -114,6 +114,7 @@ public class Cistern extends Container implements Serializable {
 		return madePipes.size();
 	}
 
+	private Pump freePump;
 	@Override
 	public boolean hasPump() {
 		return freePump != null;
@@ -221,6 +222,7 @@ public class Cistern extends Container implements Serializable {
 	 * Beállítja a FreePump attribútumot a paraméterként átadott értékre
 	 * @param freePump - Az beállítani kívánt Pump
 	 */
+	@Override
 	public void setFreePump(Pump freePump) {
 		this.freePump = freePump;
 	}
