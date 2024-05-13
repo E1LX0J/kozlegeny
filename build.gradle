@@ -34,6 +34,7 @@ javafx {
 }
 
 dependencies {
+  //testImplementation('junit:junit:4.13')
   testImplementation 'io.cucumber:cucumber-java:7.17.0'
   testImplementation 'io.cucumber:cucumber-junit:7.17.0'
   implementation('org.controlsfx:controlsfx:11.1.2')
@@ -45,9 +46,9 @@ dependencies {
   }
   implementation('org.kordamp.ikonli:ikonli-javafx:12.3.1')
   implementation('org.kordamp.bootstrapfx:bootstrapfx-core:0.4.0')
-  implementation('eu.hansolo:tilesfx:17.1.15') {
+  /*implementation('eu.hansolo:tilesfx:17.1.15') {
     exclude(group: 'org.openjfx')
-  }
+  }*/
   implementation('com.github.almasb:fxgl:17.2') {
     exclude(group: 'org.openjfx')
   }
@@ -83,7 +84,9 @@ dependencies {
   testImplementation 'io.cucumber:cucumber-java:' + cucumberVersion
 }
 
-test () {
+
+
+task cucumberTest() {
   dependsOn assemble, compileTestJava
   doLast {
     javaexec {
@@ -93,4 +96,14 @@ test () {
     }
   }
 }
+
+task junitTest(type: Test) {
+  useJUnitPlatform()
+}
+
+tasks.withType(Test) {
+  maxParallelForks = Runtime.runtime.availableProcessors()
+}
+
+test.dependsOn 'cucumberTest', 'junitTest'
 
