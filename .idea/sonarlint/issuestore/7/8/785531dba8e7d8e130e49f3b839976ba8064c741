@@ -1,0 +1,37 @@
+
+•
+java:S2293("YReplace the type specification in this constructor call with the diamond operator ("<>").(š°ÛüJ$371d9985-cfb2-4649-a669-d015a3d522f7
+q
+java:S1066"/Merge this if statement with the enclosing one.(ùäÍ¯ûÿÿÿÿJ$63a62d21-1386-4ccb-a15c-32e4e8b61a30
+²
+java:S1319“"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(’æ¢ŞÿÿÿÿÿJ$5a33a2ff-5678-4c29-a5d5-e382f7eecd21
+®
+java:S1319›"lThe type of "carriedPipes" should be an interface such as "List" rather than the implementation "ArrayList".(®œØÇûÿÿÿÿJ$be693117-8c43-4d73-bbf3-0ebe84271348
+’	java:S116"WRename this field "STICKY_TIMER" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®Š»™J$47bf9c9b-bb01-4d93-af73-5b57f6fbe28f
+]
+java:S1170"!Make this final field static too.(®Š»™J$6a78c620-167d-4fdd-a942-d85af9a2a0af
+Ã
+java:S1186Ì"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(š‘ÆıÿÿÿÿÿJ$18de126c-53ef-43a7-9e68-47082fde4518
+Ã
+java:S1186Ô"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ëè½şùÿÿÿÿJ$6ef961ec-0e94-457e-929d-caa8ef70e3bb
+Ã
+java:S1186Ø"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ü€ÑÚüÿÿÿÿJ$20b86e9d-f4e3-475d-8cd0-38887c758b11
+	java:S100š"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²¦êÌıÿÿÿÿJ$a514b643-91e1-4229-af16-7e7489df9521
+”
+java:S3776š"RRefactor this method to reduce its Cognitive Complexity from 22 to the 15 allowed.(²¦êÌıÿÿÿÿJ$bb3a28c1-c9dd-4d11-9ccf-bf7b121220f5
+X
+java:S3626¯"Remove this redundant jump.(ûÁİ…J$fe467dfd-b443-438f-b424-63a444f840b5
+X
+java:S3626´"Remove this redundant jump.(ûÁİ…J$61afead3-5b69-4de6-8804-3d56689a07cd
+x	java:S125¥"<This block of commented-out lines of code should be removed.(Åâ†óJ$fe8fc5be-35e5-4907-9ff9-3254c9decac9
+Z
+java:S2119«"Save and re-use this "Random".(¼İÅfJ$10edd7b6-ebc5-43c6-9416-540620b24837
+	java:S100Ì"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(š‘ÆıÿÿÿÿÿJ$f29ffffb-21a4-47b7-aa9c-9a46a97cf5ec
+	java:S100Ô"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ëè½şùÿÿÿÿJ$ef0a65f8-8c79-4135-a531-1236e55b4461
+k
+java:S1940°")Use the opposite operator ("!=") instead.(“ñ‡ûÿÿÿÿJ$f7895118-97b3-4e55-b385-02ed106beb65
+
+java:S3776È"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(¯İÂ¶J$cc730428-e7dd-41e3-a430-43595c5bcbe2
+n
+java:S1128
+"&Remove this unused import 'exception'.(–¥ÙÓøÿÿÿÿ8ô­¯—÷1J$bd0b538d-fd17-4039-9096-32c5cc1b1228

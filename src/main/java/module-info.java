@@ -10,6 +10,7 @@ module com.example.pipeline {
             requires org.kordamp.bootstrapfx.core;
             requires com.almasb.fxgl.all;
             requires javafx.media;
+            requires java.logging;
 
     exports menu;
     opens menu to javafx.fxml;

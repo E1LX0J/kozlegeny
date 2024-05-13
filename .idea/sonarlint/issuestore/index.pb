@@ -33,3 +33,17 @@ O
 src/main/java/menu/MyAlert.java,9\f\9fb20a99b4de346f8f89e45cb7808cead930f300
 S
 #src/main/java/menu/SaveGameBox.java,7\5\7539cd07a340c0046b9599c0f7bb376927446397
+p
+@src/test/resources/com.example.pipeline/mechanic_actions.feature,7\d\7d9985bc3923b47c9d773fb7406665f6aa2f2211
+R
+"src/main/java/player/Saboteur.java,b\8\b830ddd1b00c6687a1e070ba900f099cdd17fc46
+g
+7src/test/java/com/example/pipeline/StepDefinitions.java,4\5\4570388516f9939bea6e70274d6c205bf0c88975
+P
+ src/main/java/player/Player.java,7\8\785531dba8e7d8e130e49f3b839976ba8064c741
+R
+"src/main/java/player/Mechanic.java,9\5\956efbb0761d9b20909b9d512131d5250447966d
+Y
+)src/test/java/junit/PlayerActionTest.java,c\0\c0ce675b394bfbdc2fbb9359db0188d42230487e
+N
+src/main/java/module-info.test,f\3\f34363b64a3944622d7175422e328f54582797d8
