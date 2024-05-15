@@ -84,8 +84,6 @@ dependencies {
   testImplementation 'io.cucumber:cucumber-java:' + cucumberVersion
 }
 
-
-
 task cucumberTest() {
   dependsOn assemble, compileTestJava
   doLast {
@@ -99,6 +97,11 @@ task cucumberTest() {
 
 task junitTest(type: Test) {
   useJUnitPlatform()
+  testLogging {
+    events "passed", "skipped", "failed"
+    exceptionFormat "full"
+    showStandardStreams = true
+  }
 }
 
 tasks.withType(Test) {

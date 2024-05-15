@@ -178,8 +178,9 @@ public class Player implements Serializable {
 					if(!neighbors.isEmpty()) {
 						this.setPosition(neighbors.get(0));
 						return;
-					} else
-						MyAlert.showInvalidMoveAlert("There is no neighboring steppable container");
+					} else {
+						//MyAlert.showInvalidMoveAlert("There is no neighboring steppable container");
+					}
 				}
 			}
 			else if (c.steppable() && !c.getIsSlippery()) {
@@ -190,10 +191,10 @@ public class Player implements Serializable {
 					getReallySticky();
 				}
 			} else {
-				MyAlert.showInvalidMoveAlert("The given Container is not steppable");
+				//MyAlert.showInvalidMoveAlert("The given Container is not steppable");
 			}
 		} else {
-			MyAlert.showInvalidMoveAlert("Not even next to it");
+			//MyAlert.showInvalidMoveAlert("Not even next to it");
 		}
 	}
 

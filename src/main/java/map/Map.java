@@ -34,7 +34,6 @@ public class Map implements Serializable{
 	 * Map osztály konstruktora.
 	 */
 	private Map(){
-
 	}
 
 	
@@ -162,6 +161,72 @@ public class Map implements Serializable{
 		pu2.setOutput(p3);
 		pu3.setInput(p3);
 		pu3.setOutput(p4);
+
+		addAllNeighbors();
+	}
+
+	public static void resetMap(){
+		map = new Map();
+		containers.clear();
+		gameMap.clear();
+		leakedWater = 0;
+	}
+
+	public static void makeTestMap(){
+
+        resetMap();
+
+		Pipe p1 = new Pipe();
+		Pipe p2 = new Pipe();
+		Pump pu = new Pump(3);
+		Pipe p3 = new Pipe();
+		Cistern cs = new Cistern(p2);
+		MountainSpring ms = new MountainSpring(p1);
+
+		containers.add(ms);
+		containers.add(p1);
+		containers.add(pu);
+		containers.add(p2);
+		containers.add(p3);
+		map.containers.add(cs);
+
+		gameMap.add(new ContainerPos(ms, 0, 0));
+		gameMap.add(new ContainerPos(p1, 1, 0));
+		gameMap.add(new ContainerPos(pu, 2, 0)); // Assuming pu here refers to both (2,0) and (2,1)
+		gameMap.add(new ContainerPos(p2, 3, 0));
+		gameMap.add(new ContainerPos(cs, 4, 0));
+		gameMap.add(new ContainerPos(p3, 2, 1));
+
+		pu.setInput(p1);
+		pu.setOutput(p2);
+
+		addAllNeighbors();
+	}
+
+	public static void makeTestMapPipe(){
+
+		resetMap();
+
+		Pipe p1 = new Pipe();
+		Pipe p2 = new Pipe();
+		Pump pu = new Pump(3);
+		Cistern cs = new Cistern(p2);
+		MountainSpring ms = new MountainSpring(p1);
+
+		containers.add(ms);
+		containers.add(p1);
+		containers.add(pu);
+		containers.add(p2);
+		map.containers.add(cs);
+
+		gameMap.add(new ContainerPos(ms, 0, 0));
+		gameMap.add(new ContainerPos(p1, 1, 0));
+		gameMap.add(new ContainerPos(pu, 2, 0)); // Assuming pu here refers to both (2,0) and (2,1)
+		gameMap.add(new ContainerPos(p2, 3, 0));
+		gameMap.add(new ContainerPos(cs, 4, 0));
+
+		pu.setInput(p1);
+		pu.setOutput(p2);
 
 		addAllNeighbors();
 	}
