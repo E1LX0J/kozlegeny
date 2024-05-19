@@ -1,43 +1,43 @@
-### DOKUMENT�CI� - *Madagaszk�r Pingvinjei*
+### DOKUMENTÁCIÓ - *Madagaszkár Pingvinjei*
 
 #
 
 #
 
-### *Technol�gia 1*
-# Build keretrendszer �s CI be�zemel�se
-## C�lkit�z�s:
-*GitHub Actions �s Gradle be�zemel�se.*
+### *Technológia 1*
+# Build keretrendszer és CI beüzemelése
+## Célkitűzés:
+*GitHub Actions és Gradle beüzemelése.*
 
-## Le�r�s
+## Leírás
 #### Gradle
-A Gradle-lel a szoftverfejleszt�st bizonyos szinten automatiz�lni tudjuk, ezzel gyors�tva �s biztosabb� t�ve k�dunkat.
+A Gradle-lel a szoftverfejlesztést bizonyos szinten automatizálni tudjuk, ezzel gyorsítva és biztosabbá téve kódunkat.
 
 #### GitHub Actions
-GitHub Actions haszn�lat�val tudtuk automatiz�lni folyamatos integr�ci�t, a munkafolyamatok l�trehoz�s�t k�zvetlen�l a repository-n bel�l annak min�s�g�nek n�vel�s�re.
+GitHub Actions használatával tudtuk automatizálni folyamatos integrációt, a munkafolyamatok létrehozását közvetlenül a repository-n belül annak minőségének növelésére.
 
 ## Munkafolyamat
-Els� m�rf�ldk�k�nt a Gradle be�zemel�se mellett d�nt�tt�nk, amit siker�lt gyorsan implement�lnunk.
+Első mérföldként a Gradle beüzemelése mellett döntöttünk, amit sikerült gyorsan implementálnunk.
 
-A 'build.gradle' file-ban defini�ltuk a f�gg�s�gek, plug-in-ek �s konfigur�ci�k list�j�t, amikkel a projekt m�k�d�s�t, saj�toss�gait �rjuk k�r�l.
+A 'build.gradle' file-ban definiáltuk a függőségek, plug-in-ek és konfigurációk listáját, amikkel a projekt működését, sajátosságait írjuk körül.
 
-A 'gradlew' file szint�n k�l�n kiemel�st �rdemel. Ez a Gradle Wrapper v�grehajthat� file-ja, amivel tudjuk futtatni a Gradle-t an�lk�l hogy telep�teni k�ne ak�rmelyik�nk g�p�re, ezzel gyors�tva a feladatok megold�s�t.
+A 'gradlew' file szintén külön kiemelést érdemel. Ez a Gradle Wrapper végrehajtható file-ja, amivel tudjuk futtatni a Gradle-t anélkül hogy telepíteni kéne akármiénk gépére, ezzel gyorsítva a feladatok megoldását.
 
-A Gradle tesztel�s egyik kimenet�t megtekinthetj�k az al�bbi �br�n.
+A Gradle tesztelés egyik kimenetét megtekinthetjük az alábbi ábrán.
 
-![gradle teszt p�lda](res/gr_1.png)
+![gradle teszt példa](res/gr_1.png)
 
-A Gradle megfelel� haszn�lat�hoz *@E1LX0J* k�sz�tett egy �tmutat�t, amivel el lehetett ind�tani az alkalmaz�st a Gradle seg�ts�g�vel.
-Ennek legfontosabb r�szlete volt a megfelel� JDK verzi� (*17*) be�ll�t�sa a k�rnyezeti v�ltoz�kon bel�l, �gy m�r a rendszer felismerte a JDK-t �s automatikusan haszn�hatta az alkalamz�s futtat�s�ra.
+A Gradle megfelelő használatához *@E1LX0J* készített egy útmutatót, amivel el lehetett indítani az alkalmazást a Gradle segítségével.
+Ennek legfontosabb részlete volt a megfelelő JDK verzió (*17*) beállítása a környezeti változókon belül, így már a rendszer felismerte a JDK-t és automatikusan használhatta az alkalamzás futtatására.
 
-Ennek a folyamatnak a k�pekkel ell�tott dokument�ci�ja megtal�lhat� a repository-n bel�l.
+Ennek a folyamatnak a képekkel ellátott dokumentációját megtalálható a repository-n belül.
 
-A csapat tagjainak review-jai ut�n implement�lva is lett a Gradle a projekt�nkbe, �gy m�r ak�rmelyik�nk clone-ozhatott a f� branch-b�l �s a sz�m�ra kiosztott tesztel�si �s integr�ci�s feladatokat k�nyelmesen megoldhatta a Gradle seg�ts�g�vel �sszetett konfigur�ci�k �s telep�t�s n�lk�l.
+A csapat tagjainak review-jai után implementálva is lett a Gradle a projektünkbe, így már akármiénk clone-ozhatott a fő branch-ből és a számára kiosztott tesztelési és integrációs feladatokat könnyedén megoldhatta a Gradle segítségével összetett konfigurációk és telepítés nélkül.
 
-A m�sodik l�p�s a CI (*CI = Continuous Integration*) be�zemel�se volt. Itt egyszer�en csak hozz�adtuk a GitHub Actions-h�z a "*Java CI with Gradle*"-t, amivel egyszer�en automatiz�lhattuk a k�d tesztel�s�t, �p�t�s�t �s telep�t�s�t is.
+A második lépés a CI (*CI = Continuous Integration*) beüzemelése volt. Itt egyszerűen csak hozzáadtuk a GitHub Actions-höz a "*Java CI with Gradle*"-t, amivel egyszerűen automatizálhattuk a kód tesztelését, építését és telepítését is.
 
-Itt tal�n a legfontosabb eml�t�sre m�lt� file a '*Workflow*' file, ami mag�t a CI-t kezeli. Itt defini�ltuk az integr�ci� v�grehajtand� feladatait, esem�nyeit.
+Itt talán a legfontosabb említésre méltó file a '*Workflow*' file, ami magát a CI-t kezeli. Itt definiáltuk az integráció végrehajtandó feladatait, eseményeit.
 
-Ez a file a k�vetkez� fejezetekben is kit�ntetett fontoss�gal szerepel, mivel a tov�bbi CI/CD szint emel�s �rdek�ben haszn�lt szoftvereknek a m�k�d�s�t is itt defini�lhatjuk
+Ez a file a következő fejezetekben is kitüntetett fontossággal szerepel, mivel a további CI/CD szint emelés érdekében használt szoftvereknek a működését is itt definiálhatjuk.
 
-Ezekkel a l�p�sekkel felh�ztunk az alkalmaz�s tesztel�s�re, kezel�s�re egy k�z�s v�zt, amit b�rki b�rmikor egyszer�en el�rhet.
+Ezekkel a lépésekkel felhúztunk az alkalmazás tesztelésére, kezelésére egy közös vázt, amit bárki bármikor egyszerűen elérhet.
