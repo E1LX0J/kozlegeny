@@ -39,3 +39,25 @@ A Cucumber használatával különböző teszteseteket definiáltunk, amelyek a 
 ### saboteur_actions.feature
 #### Funkciók és tesztesetek
 - **Saboteur makes a pipe slippery:** A szabotőr csúszóssá teszi a csövet.
+
+## Cucumber tesztek futásának eredménye
+
+#
+
+### Mechanic Actions tesztek eredménye
+<img src = "res/cu_mec.png" width = "500">
+
+#
+
+### Player Actions tesztek eredménye
+<img src = "res/cu_pla.png" width = "600">
+
+#
+
+### Saboteur Actions tesztek eredménye
+<img src = "res/cu_sab.png" width = "500">
+
+#
+
+### Teljes teszt eredménye
+<img src = "res/cu_all.png" width = "200">

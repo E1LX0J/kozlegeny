@@ -118,3 +118,33 @@ A JUnit tesztelési folyamat során először a megfelelő környezetet kell be�
 - Leírás: Azt ellenőrzi, hogy a szabotőr csúszóssá teszi-e a csövet.
 - Bemenet: Szabotőr csőben.
 - Kimenet: A cső csúszós.
+
+## Tesztek futásának eredménye
+
+#
+
+### PlayerActionTest.java osztályban megírt tesztek eredménye
+<img src = "res/ju_pat.png" width = "500">
+
+#
+
+### MechanicActionTest.java osztályban megírt tesztek eredménye
+<img src = "res/ju_mec.png" width = "500">
+
+#
+
+### SaboteurActionTest.java osztályban megírt tesztek eredménye
+<img src = "res/ju_sab.png" width = "500">
+
+#
+
+### ControllerActionTest.java osztályban megírt tesztek eredménye
+<img src = "res/ju_con.png" width = "500">
+
+#
+
+## Teszt kódlefedettsége JaCoCo-val
+### A JaCoCo-ról
+*A JaCoCo egy nyílt forráskódú Java kódfedettség eszköz, amely lehetővé teszi a tesztek által lefedett kódrészek mérését és jelentését. Ennek segítségével a továbbiakban a szoftver minősége javítható a kódlefedettségi szint növelésével.*
+### Képernyőkép a kódlefedettségről
+<img src = "res/ju_jac.png" width = "500">
